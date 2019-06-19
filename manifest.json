@@ -37,8 +37,8 @@
     "scope": ".",
     "display": "minimal-ui",
     "orientation": "portrait-primary",
-    "background_color": "#68e86e", //淺綠色
-    "theme_color": "#f26d6d", //粉紅色
+    "background_color": "#68e86e",
+    "theme_color": "#f26d6d",
     "description": "簡單的生活紀實Web App 實作PWA",
     "dir": "ltr",
     "lang": "zh-Hant-TW"
