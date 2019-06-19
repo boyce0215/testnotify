@@ -26,13 +26,6 @@
   <script src="javascripts/jquery-3.1.1.min.js"></script>
   <script src="javascripts/bootstrap.min.js"></script>
   <script>
-    var enableNotifications = document.querySelectorAll('#notify');
-    if ('Notification' in window) {
-      for (var i= 0; i < enableNotifications.length; i++) {
-        enableNotifications[i].style.display = 'inline-block';
-        enableNotifications[i].addEventListener('click', askForNotificationPermission);
-      }
-    }
     function displayNotification(){
       new Notification('訂閱成功！！！');
     }
@@ -45,11 +38,12 @@
         } else {
           displayNotification();
           $('.wording').text('訂閱成功！');
-          $('#notify').click(function(){
-            $('.toast').toast('show');
-          });
         }
       });
     }
+    $('#notify').click(function(){
+      askForNotificationPermission();
+      $('.toast').toast('show');
+    });
   </script>
 </html>
