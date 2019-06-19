@@ -10,7 +10,9 @@
     <script defer="defer" src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
   </head>
   <body>
-    <div class="container"><a class="btn btn-primary" id="notify" href="#">設定</a></div>
+    <div class="container"><a class="btn btn-primary" id="notify" href="#">設定</a>
+      <p class="wording">123</p>
+    </div>
     <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
       <div class="toast-header">
         <svg class="bd-placeholdeer-img rounded mr-2" width="20" height="20">
@@ -39,10 +41,12 @@
         console.log('User Choice', status);
         if (status !== 'granted') {
           console.log('推播允許被拒絕了!');
+          $('.wording').text('推播允許被拒絕了!');
         } else {
           displayNotification();
+          $('.wording').text('訂閱成功！');
           $('#notify').click(function(){
-            $('.toast').toast('show')
+            $('.toast').toast('show');
           });
         }
       });
