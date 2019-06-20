@@ -35,10 +35,10 @@
     ],
     "start_url": "index.html",
     "scope": ".",
-    "display": "minimal-ui",
+    "display": "standalone",
     "orientation": "portrait-primary",
-    "background_color": "#68e86e",
-    "theme_color": "#f26d6d",
+    "background_color": "#000000",
+    "theme_color": "#044022",
     "description": "簡單的生活紀實Web App 實作PWA",
     "dir": "ltr",
     "lang": "zh-Hant-TW"
