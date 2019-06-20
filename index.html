@@ -41,34 +41,34 @@
       console.log('瀏覽器不支援');
     }
     
-    function displayNotification(){
-      if('serviceWorker' in navigator){
-        var options = {
-          body: '歡迎進入30天PWA的世界'           
-        };
-        navigator.serviceWorker.ready
-          .then(function(sw){
-            sw.showNotification('訂閱成功！！！', options);
-          })
-      }  
-    }
+    //- function displayNotification(){
+    //-   if('serviceWorker' in navigator){
+    //-     var options = {
+    //-       body: '歡迎進入30天PWA的世界'           
+    //-     };
+    //-     navigator.serviceWorker.ready
+    //-       .then(function(sw){
+    //-         sw.showNotification('訂閱成功！！！', options);
+    //-       })
+    //-   }  
+    //- }
     
-    function askForNotificationPermission() {
-      Notification.requestPermission(function(status){
-        console.log('User Choice', status);
-        if (status !== 'granted') {
-          console.log('推播允許被拒絕了!');
-          $('.wording').text('推播允許被拒絕了!');
-        } else {
-          displayNotification();
-          $('.wording').text('訂閱成功！');
-        }
-      });
-    }
+    //- function askForNotificationPermission() {
+    //-   Notification.requestPermission(function(status){
+    //-     console.log('User Choice', status);
+    //-     if (status !== 'granted') {
+    //-       console.log('推播允許被拒絕了!');
+    //-       $('.wording').text('推播允許被拒絕了!');
+    //-     } else {
+    //-       displayNotification();
+    //-       $('.wording').text('訂閱成功！');
+    //-     }
+    //-   });
+    //- }
     
-    $('#notify').click(function(){
-      askForNotificationPermission();
-      $('.toast').toast('show');
-    });
+    //- $('#notify').click(function(){
+    //-   askForNotificationPermission();
+    //-   $('.toast').toast('show');
+    //- });
   </script>
 </html>
