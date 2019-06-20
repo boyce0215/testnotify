@@ -11,7 +11,7 @@
     <script defer="defer" src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
   </head>
   <body>
-    <div class="container"><a class="btn btn-primary" id="notify" href="#">設定</a>
+    <div class="container"><a class="btn btn-primary" id="notify" href="#">設定</a><a class="btn btn-primary" id="addscreen" href="#">加入主畫面</a>
       <p class="wording">123</p>
     </div>
     <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
@@ -27,9 +27,32 @@
   <script src="javascripts/jquery-3.1.1.min.js"></script>
   <script src="javascripts/bootstrap.min.js"></script>
   <script>
-    function displayNotification(){
-      new Notification('訂閱成功！！！');
+    if('serviceWorker' in navigator){
+      window.addEventListener('load', function() {
+        navigator.serviceWorker
+        .register('/service-worker.js')
+        .then(function(){
+          console.log('Service Worker 註冊成功');
+        }).catch(function(error) {
+          console.log('Service worker 註冊失敗:', error);
+        });
+      });
+    } else {
+      console.log('瀏覽器不支援');
     }
+    
+    function displayNotification(){
+      if('serviceWorker' in navigator){
+        var options = {
+          body: '歡迎進入30天PWA的世界'           
+        };
+        navigator.serviceWorker.ready
+          .then(function(sw){
+            sw.showNotification('訂閱成功！！！', options);
+          })
+      }  
+    }
+    
     function askForNotificationPermission() {
       Notification.requestPermission(function(status){
         console.log('User Choice', status);
@@ -42,6 +65,7 @@
         }
       });
     }
+    
     $('#notify').click(function(){
       askForNotificationPermission();
       $('.toast').toast('show');
